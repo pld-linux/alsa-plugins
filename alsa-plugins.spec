@@ -1,19 +1,19 @@
 Summary:	Advanced Linux Sound Architecture - plugins
 Summary(pl):	Advanced Linux Sound Architecture - wtyczki
 Name:		alsa-plugins
-Version:	1.0.11
-Release:	2
+Version:	1.0.12
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://ftp.alsa-project.org/pub/plugins/%{name}-%{version}.tar.bz2
-# Source0-md5:	4ca9ebb9f59b6d9bd85c904134a78305
+# Source0-md5:	f64f0321292a240408bd7ea3e11871a3
 URL:		http://www.alsa-project.org/
-BuildRequires:	alsa-lib-devel >= 1.0.11
+BuildRequires:	alsa-lib-devel >= 1.0.12
 BuildRequires:	automake
 BuildRequires:	ffmpeg-devel
 BuildRequires:	jack-audio-connection-kit-devel >= 0.98
 BuildRequires:	libsamplerate-devel
-BuildRequires:	polypaudio-devel >= 0.8
+BuildRequires:	pulseaudio-devel >= 0.9.2
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -27,7 +27,7 @@ Wtyczki ALSA.
 Summary:	A52 output plugin for ALSA
 Summary(pl):	Wtyczka wyj¶ciowa A52 dla systemu ALSA
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.11
+Requires:	alsa-lib >= 1.0.12
 
 %description a52
 A52 output plugin for ALSA.
@@ -39,7 +39,7 @@ Wtyczka wyj¶ciowa A52 dla systemu ALSA.
 Summary:	JACK <--> ALSA PCM plugin
 Summary(pl):	Wtyczka PCM JACK <--> ALSA
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.11
+Requires:	alsa-lib >= 1.0.12
 Requires:	jack-audio-connection-kit >= 0.98
 
 %description jack
@@ -57,7 +57,7 @@ nagrywaniu.
 Summary:	Up/down mixing plugins for ALSA
 Summary(pl):	Wtyczki up/down-mix dla systemu ALSA
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.11
+Requires:	alsa-lib >= 1.0.12
 
 %description mix
 Up/down mixing plugins for ALSA.
@@ -69,7 +69,7 @@ Wtyczki up/down-mix dla systemu ALSA.
 Summary:	OSS <--> ALSA plugins
 Summary(pl):	Wtyczki OSS <--> ALSA
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.11
+Requires:	alsa-lib >= 1.0.12
 
 %description oss
 These plugins converts the ALSA API over OSS API. ALSA native
@@ -79,18 +79,20 @@ applications can run on OSS drivers.
 Te wtyczki konwertuj± API ALSA na API OSS. Aplikacje korzystaj±ce
 natywnie z biblioteki ALSA mog± dzia³aæ na sterownikach OSS.
 
-%package polyp
+%package pulse
 Summary:	Polypaudio <--> ALSA plugins
 Summary(pl):	Wtyczki Polypaudio <--> ALSA
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.11
+Requires:	alsa-lib >= 1.0.12
+Requires:	polypaudio-libs >= 0.9.2
+Obsoletes:	alsa-plugins-polyp
 
-%description polyp
+%description pulse
 These plugins allows any program that uses the ALSA API to access a
 Polypaudio sound daemon. In other words, native ALSA applications can
 play and record sound across a network.
 
-%description polyp -l pl
+%description pulse -l pl
 Te wtyczki umo¿liwiaj± dowolnemu programowi korzystaj±cego z API ALSA
 dostêp do demona d¼wiêku Polypaudio. Innymi s³owy, aplikacje ALSA mog±
 odtwarzaæ i nagrywaæ d¼wiêk poprzez sieæ.
@@ -99,7 +101,7 @@ odtwarzaæ i nagrywaæ d¼wiêk poprzez sieæ.
 Summary:	Rate converter plugin for ALSA
 Summary(pl):	Wtyczka konwertera tempa dla systemu ALSA
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.11
+Requires:	alsa-lib >= 1.0.12
 
 %description samplerate
 Rate converter plugin for ALSA.
@@ -148,11 +150,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_ctl_oss.so
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_pcm_oss.so
 
-%files polyp
+%files pulse
 %defattr(644,root,root,755)
-%doc doc/README-polyp
-%attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_ctl_polyp.so
-%attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_pcm_polyp.so
+%doc doc/README-pulse
+%attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_ctl_pulse.so
+%attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_pcm_pulse.so
 
 %files samplerate
 %defattr(644,root,root,755)
