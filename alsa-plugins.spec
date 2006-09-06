@@ -2,7 +2,7 @@ Summary:	Advanced Linux Sound Architecture - plugins
 Summary(pl):	Advanced Linux Sound Architecture - wtyczki
 Name:		alsa-plugins
 Version:	1.0.12
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://ftp.alsa-project.org/pub/plugins/%{name}-%{version}.tar.bz2
@@ -80,21 +80,21 @@ Te wtyczki konwertuj± API ALSA na API OSS. Aplikacje korzystaj±ce
 natywnie z biblioteki ALSA mog± dzia³aæ na sterownikach OSS.
 
 %package pulse
-Summary:	Polypaudio <--> ALSA plugins
-Summary(pl):	Wtyczki Polypaudio <--> ALSA
+Summary:	PulseAudio <--> ALSA plugins
+Summary(pl):	Wtyczki PulseAudio <--> ALSA
 Group:		Libraries
 Requires:	alsa-lib >= 1.0.12
-Requires:	polypaudio-libs >= 0.9.2
+Requires:	pulseaudio-libs >= 0.9.2
 Obsoletes:	alsa-plugins-polyp
 
 %description pulse
 These plugins allows any program that uses the ALSA API to access a
-Polypaudio sound daemon. In other words, native ALSA applications can
+PulseAudio sound daemon. In other words, native ALSA applications can
 play and record sound across a network.
 
 %description pulse -l pl
 Te wtyczki umo¿liwiaj± dowolnemu programowi korzystaj±cego z API ALSA
-dostêp do demona d¼wiêku Polypaudio. Innymi s³owy, aplikacje ALSA mog±
+dostêp do demona d¼wiêku PulseAudio. Innymi s³owy, aplikacje ALSA mog±
 odtwarzaæ i nagrywaæ d¼wiêk poprzez sieæ.
 
 %package samplerate
