@@ -1,14 +1,14 @@
 Summary:	Advanced Linux Sound Architecture - plugins
 Summary(pl):	Advanced Linux Sound Architecture - wtyczki
 Name:		alsa-plugins
-Version:	1.0.12
-Release:	2
+Version:	1.0.13
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://ftp.alsa-project.org/pub/plugins/%{name}-%{version}.tar.bz2
-# Source0-md5:	f64f0321292a240408bd7ea3e11871a3
+# Source0-md5:	7ef5e429b4a2756d0b5f0d7ce5bba0c8
 URL:		http://www.alsa-project.org/
-BuildRequires:	alsa-lib-devel >= 1.0.12
+BuildRequires:	alsa-lib-devel >= 1.0.13
 BuildRequires:	automake
 BuildRequires:	ffmpeg-devel
 BuildRequires:	jack-audio-connection-kit-devel >= 0.98
@@ -27,7 +27,7 @@ Wtyczki ALSA.
 Summary:	A52 output plugin for ALSA
 Summary(pl):	Wtyczka wyj¶ciowa A52 dla systemu ALSA
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.12
+Requires:	alsa-lib >= 1.0.13
 
 %description a52
 A52 output plugin for ALSA.
@@ -39,7 +39,7 @@ Wtyczka wyj¶ciowa A52 dla systemu ALSA.
 Summary:	JACK <--> ALSA PCM plugin
 Summary(pl):	Wtyczka PCM JACK <--> ALSA
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.12
+Requires:	alsa-lib >= 1.0.13
 Requires:	jack-audio-connection-kit >= 0.98
 
 %description jack
@@ -57,7 +57,7 @@ nagrywaniu.
 Summary:	Up/down mixing plugins for ALSA
 Summary(pl):	Wtyczki up/down-mix dla systemu ALSA
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.12
+Requires:	alsa-lib >= 1.0.13
 
 %description mix
 Up/down mixing plugins for ALSA.
@@ -69,7 +69,7 @@ Wtyczki up/down-mix dla systemu ALSA.
 Summary:	OSS <--> ALSA plugins
 Summary(pl):	Wtyczki OSS <--> ALSA
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.12
+Requires:	alsa-lib >= 1.0.13
 
 %description oss
 These plugins converts the ALSA API over OSS API. ALSA native
@@ -83,7 +83,7 @@ natywnie z biblioteki ALSA mog± dzia³aæ na sterownikach OSS.
 Summary:	PulseAudio <--> ALSA plugins
 Summary(pl):	Wtyczki PulseAudio <--> ALSA
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.12
+Requires:	alsa-lib >= 1.0.13
 Requires:	pulseaudio-libs >= 0.9.2
 Obsoletes:	alsa-plugins-polyp
 
@@ -101,7 +101,7 @@ odtwarzaæ i nagrywaæ d¼wiêk poprzez sieæ.
 Summary:	Rate converter plugin for ALSA
 Summary(pl):	Wtyczka konwertera tempa dla systemu ALSA
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.12
+Requires:	alsa-lib >= 1.0.13
 
 %description samplerate
 Rate converter plugin for ALSA.
