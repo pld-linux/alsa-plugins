@@ -1,5 +1,5 @@
 Summary:	Advanced Linux Sound Architecture - plugins
-Summary(pl.UTF-8):   Advanced Linux Sound Architecture - wtyczki
+Summary(pl.UTF-8):	Advanced Linux Sound Architecture - wtyczki
 Name:		alsa-plugins
 Version:	1.0.13
 Release:	2
@@ -25,7 +25,7 @@ Wtyczki ALSA.
 
 %package a52
 Summary:	A52 output plugin for ALSA
-Summary(pl.UTF-8):   Wtyczka wyjściowa A52 dla systemu ALSA
+Summary(pl.UTF-8):	Wtyczka wyjściowa A52 dla systemu ALSA
 Group:		Libraries
 Requires:	alsa-lib >= 1.0.13
 
@@ -37,7 +37,7 @@ Wtyczka wyjściowa A52 dla systemu ALSA.
 
 %package jack
 Summary:	JACK <--> ALSA PCM plugin
-Summary(pl.UTF-8):   Wtyczka PCM JACK <--> ALSA
+Summary(pl.UTF-8):	Wtyczka PCM JACK <--> ALSA
 Group:		Libraries
 Requires:	alsa-lib >= 1.0.13
 Requires:	jack-audio-connection-kit >= 0.98
@@ -55,7 +55,7 @@ nagrywaniu.
 
 %package mix
 Summary:	Up/down mixing plugins for ALSA
-Summary(pl.UTF-8):   Wtyczki up/down-mix dla systemu ALSA
+Summary(pl.UTF-8):	Wtyczki up/down-mix dla systemu ALSA
 Group:		Libraries
 Requires:	alsa-lib >= 1.0.13
 
@@ -67,7 +67,7 @@ Wtyczki up/down-mix dla systemu ALSA.
 
 %package oss
 Summary:	OSS <--> ALSA plugins
-Summary(pl.UTF-8):   Wtyczki OSS <--> ALSA
+Summary(pl.UTF-8):	Wtyczki OSS <--> ALSA
 Group:		Libraries
 Requires:	alsa-lib >= 1.0.13
 
@@ -81,7 +81,7 @@ natywnie z biblioteki ALSA mogą działać na sterownikach OSS.
 
 %package pulse
 Summary:	PulseAudio <--> ALSA plugins
-Summary(pl.UTF-8):   Wtyczki PulseAudio <--> ALSA
+Summary(pl.UTF-8):	Wtyczki PulseAudio <--> ALSA
 Group:		Libraries
 Requires:	alsa-lib >= 1.0.13
 Requires:	pulseaudio-libs >= 0.9.2
@@ -99,7 +99,7 @@ odtwarzać i nagrywać dźwięk poprzez sieć.
 
 %package samplerate
 Summary:	Rate converter plugin for ALSA
-Summary(pl.UTF-8):   Wtyczka konwertera tempa dla systemu ALSA
+Summary(pl.UTF-8):	Wtyczka konwertera tempa dla systemu ALSA
 Group:		Libraries
 Requires:	alsa-lib >= 1.0.13
 
