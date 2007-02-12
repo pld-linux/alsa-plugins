@@ -1,5 +1,5 @@
 Summary:	Advanced Linux Sound Architecture - plugins
-Summary(pl):	Advanced Linux Sound Architecture - wtyczki
+Summary(pl.UTF-8):   Advanced Linux Sound Architecture - wtyczki
 Name:		alsa-plugins
 Version:	1.0.13
 Release:	2
@@ -20,24 +20,24 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 ALSA plugins.
 
-%description -l pl
+%description -l pl.UTF-8
 Wtyczki ALSA.
 
 %package a52
 Summary:	A52 output plugin for ALSA
-Summary(pl):	Wtyczka wyj¶ciowa A52 dla systemu ALSA
+Summary(pl.UTF-8):   Wtyczka wyjÅ›ciowa A52 dla systemu ALSA
 Group:		Libraries
 Requires:	alsa-lib >= 1.0.13
 
 %description a52
 A52 output plugin for ALSA.
 
-%description a52 -l pl
-Wtyczka wyj¶ciowa A52 dla systemu ALSA.
+%description a52 -l pl.UTF-8
+Wtyczka wyjÅ›ciowa A52 dla systemu ALSA.
 
 %package jack
 Summary:	JACK <--> ALSA PCM plugin
-Summary(pl):	Wtyczka PCM JACK <--> ALSA
+Summary(pl.UTF-8):   Wtyczka PCM JACK <--> ALSA
 Group:		Libraries
 Requires:	alsa-lib >= 1.0.13
 Requires:	jack-audio-connection-kit >= 0.98
@@ -47,27 +47,27 @@ This plugin converts the ALSA API over JACK (Jack Audio Connection
 Kit) API. ALSA native applications can work transparently together
 with jackd for both playback and capture.
 
-%description jack -l pl
+%description jack -l pl.UTF-8
 Ta wtyczka konwertuje API ALSA na API JACK (Jack Audio Connection
-Kit). Aplikacje korzystaj±ce natywnie z biblioteki ALSA mog± w sposób
-przezroczysty dzia³aæ z jackd zarówno przy odtwarzaniu d¼wiêku, jak i
+Kit). Aplikacje korzystajÄ…ce natywnie z biblioteki ALSA mogÄ… w sposÃ³b
+przezroczysty dziaÅ‚aÄ‡ z jackd zarÃ³wno przy odtwarzaniu dÅºwiÄ™ku, jak i
 nagrywaniu.
 
 %package mix
 Summary:	Up/down mixing plugins for ALSA
-Summary(pl):	Wtyczki up/down-mix dla systemu ALSA
+Summary(pl.UTF-8):   Wtyczki up/down-mix dla systemu ALSA
 Group:		Libraries
 Requires:	alsa-lib >= 1.0.13
 
 %description mix
 Up/down mixing plugins for ALSA.
 
-%description mix -l pl
+%description mix -l pl.UTF-8
 Wtyczki up/down-mix dla systemu ALSA.
 
 %package oss
 Summary:	OSS <--> ALSA plugins
-Summary(pl):	Wtyczki OSS <--> ALSA
+Summary(pl.UTF-8):   Wtyczki OSS <--> ALSA
 Group:		Libraries
 Requires:	alsa-lib >= 1.0.13
 
@@ -75,13 +75,13 @@ Requires:	alsa-lib >= 1.0.13
 These plugins converts the ALSA API over OSS API. ALSA native
 applications can run on OSS drivers.
 
-%description oss -l pl
-Te wtyczki konwertuj± API ALSA na API OSS. Aplikacje korzystaj±ce
-natywnie z biblioteki ALSA mog± dzia³aæ na sterownikach OSS.
+%description oss -l pl.UTF-8
+Te wtyczki konwertujÄ… API ALSA na API OSS. Aplikacje korzystajÄ…ce
+natywnie z biblioteki ALSA mogÄ… dziaÅ‚aÄ‡ na sterownikach OSS.
 
 %package pulse
 Summary:	PulseAudio <--> ALSA plugins
-Summary(pl):	Wtyczki PulseAudio <--> ALSA
+Summary(pl.UTF-8):   Wtyczki PulseAudio <--> ALSA
 Group:		Libraries
 Requires:	alsa-lib >= 1.0.13
 Requires:	pulseaudio-libs >= 0.9.2
@@ -92,21 +92,21 @@ These plugins allows any program that uses the ALSA API to access a
 PulseAudio sound daemon. In other words, native ALSA applications can
 play and record sound across a network.
 
-%description pulse -l pl
-Te wtyczki umo¿liwiaj± dowolnemu programowi korzystaj±cego z API ALSA
-dostêp do demona d¼wiêku PulseAudio. Innymi s³owy, aplikacje ALSA mog±
-odtwarzaæ i nagrywaæ d¼wiêk poprzez sieæ.
+%description pulse -l pl.UTF-8
+Te wtyczki umoÅ¼liwiajÄ… dowolnemu programowi korzystajÄ…cego z API ALSA
+dostÄ™p do demona dÅºwiÄ™ku PulseAudio. Innymi sÅ‚owy, aplikacje ALSA mogÄ…
+odtwarzaÄ‡ i nagrywaÄ‡ dÅºwiÄ™k poprzez sieÄ‡.
 
 %package samplerate
 Summary:	Rate converter plugin for ALSA
-Summary(pl):	Wtyczka konwertera tempa dla systemu ALSA
+Summary(pl.UTF-8):   Wtyczka konwertera tempa dla systemu ALSA
 Group:		Libraries
 Requires:	alsa-lib >= 1.0.13
 
 %description samplerate
 Rate converter plugin for ALSA.
 
-%description samplerate -l pl
+%description samplerate -l pl.UTF-8
 Wtyczka konwertera tempa dla systemu ALSA.
 
 %prep
