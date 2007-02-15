@@ -1,12 +1,12 @@
 Summary:	Advanced Linux Sound Architecture - plugins
 Summary(pl.UTF-8):	Advanced Linux Sound Architecture - wtyczki
 Name:		alsa-plugins
-Version:	1.0.13
-Release:	2
+Version:	1.0.14rc2
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://ftp.alsa-project.org/pub/plugins/%{name}-%{version}.tar.bz2
-# Source0-md5:	7ef5e429b4a2756d0b5f0d7ce5bba0c8
+# Source0-md5:	87646dd468f3a0e776dd525476f6afae
 URL:		http://www.alsa-project.org/
 BuildRequires:	alsa-lib-devel >= 1.0.13
 BuildRequires:	automake
@@ -132,7 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 %files a52
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_pcm_a52.so
-
+      
 %files jack
 %defattr(644,root,root,755)
 %doc doc/README-jack
@@ -143,6 +143,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/{upmix,vdownmix}.txt
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_pcm_upmix.so
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_pcm_vdownmix.so
+%attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_ctl_dsp_ctl.so
+%attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_pcm_alsa_dsp.so
 
 %files oss
 %defattr(644,root,root,755)
