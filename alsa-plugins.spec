@@ -1,12 +1,12 @@
 Summary:	Advanced Linux Sound Architecture - plugins
 Summary(pl.UTF-8):	Advanced Linux Sound Architecture - wtyczki
 Name:		alsa-plugins
-Version:	1.0.16
+Version:	1.0.17
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://ftp.alsa-project.org/pub/plugins/%{name}-%{version}.tar.bz2
-# Source0-md5:	5906aff0d0dc84dee9624d395db4cfc6
+# Source0-md5:	f37d0b2b19dfbe215144941ab8bb6e49
 URL:		http://www.alsa-project.org/
 BuildRequires:	alsa-lib-devel >= 1.0.16
 BuildRequires:	automake
@@ -154,7 +154,10 @@ Wtyczka konwertera tempa dla systemu ALSA oparta na bibliotece speex.
 
 %build
 cp -f /usr/share/automake/config.sub .
-%configure
+%configure \
+	--enable-maemo-plugin \
+	--enable-maemo-resource-manager \
+	--with-speex=lib
 
 %{__make}
 
