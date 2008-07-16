@@ -209,6 +209,7 @@ rm -rf $RPM_BUILD_ROOT
 %files pulse
 %defattr(644,root,root,755)
 %doc doc/README-pulse
+%attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_conf_pulse.so
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_ctl_pulse.so
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_pcm_pulse.so
 
