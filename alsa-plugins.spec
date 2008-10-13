@@ -12,7 +12,7 @@ URL:		http://www.alsa-project.org/
 BuildRequires:	alsa-lib-devel >= 1.0.16
 BuildRequires:	automake
 BuildRequires:	dbus-devel >= 0.35
-BuildRequires:	ffmpeg-devel
+BuildRequires:	ffmpeg-devel >= 0.4.9-4.20080822.1
 BuildRequires:	jack-audio-connection-kit-devel >= 0.98
 BuildRequires:	libsamplerate-devel
 BuildRequires:	pulseaudio-devel >= 0.9.2
