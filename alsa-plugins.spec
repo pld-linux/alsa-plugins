@@ -7,6 +7,7 @@ License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://ftp.alsa-project.org/pub/plugins/%{name}-%{version}.tar.bz2
 # Source0-md5:	f37d0b2b19dfbe215144941ab8bb6e49
+Patch0:		%{name}-ffmpeg.patch
 URL:		http://www.alsa-project.org/
 BuildRequires:	alsa-lib-devel >= 1.0.16
 BuildRequires:	automake
@@ -151,6 +152,7 @@ Wtyczka konwertera tempa dla systemu ALSA oparta na bibliotece speex.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.sub .
