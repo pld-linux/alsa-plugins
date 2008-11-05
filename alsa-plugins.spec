@@ -1,15 +1,14 @@
 Summary:	Advanced Linux Sound Architecture - plugins
 Summary(pl.UTF-8):	Advanced Linux Sound Architecture - wtyczki
 Name:		alsa-plugins
-Version:	1.0.17
-Release:	4
+Version:	1.0.18
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://ftp.alsa-project.org/pub/plugins/%{name}-%{version}.tar.bz2
-# Source0-md5:	f37d0b2b19dfbe215144941ab8bb6e49
-Patch0:		%{name}-ffmpeg.patch
+# Source0-md5:	4a798b47ba10c17aed66dff234d31b24
 URL:		http://www.alsa-project.org/
-BuildRequires:	alsa-lib-devel >= 1.0.16
+BuildRequires:	alsa-lib-devel >= 1.0.18
 BuildRequires:	automake
 BuildRequires:	dbus-devel >= 0.35
 BuildRequires:	ffmpeg-devel >= 0.4.9-4.20080822.1
@@ -30,7 +29,7 @@ Wtyczki ALSA.
 Summary:	A52 output plugin for ALSA
 Summary(pl.UTF-8):	Wtyczka wyjściowa A52 dla systemu ALSA
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.16
+Requires:	alsa-lib >= 1.0.18
 
 %description a52
 A52 output plugin for ALSA.
@@ -42,7 +41,7 @@ Wtyczka wyjściowa A52 dla systemu ALSA.
 Summary:	JACK <--> ALSA PCM plugin
 Summary(pl.UTF-8):	Wtyczka PCM JACK <--> ALSA
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.16
+Requires:	alsa-lib >= 1.0.18
 Requires:	jack-audio-connection-kit >= 0.98
 
 %description jack
@@ -60,7 +59,7 @@ nagrywaniu.
 Summary:	libavcodec-based rate converter plugin for ALSA
 Summary(pl.UTF-8):	Wtyczka konwertera tempa dla systemu ALSA oparta na libavcodec
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.16
+Requires:	alsa-lib >= 1.0.18
 
 %description lavcrate
 libavcodec-based rate converter plugin for ALSA.
@@ -72,7 +71,7 @@ Wtyczka konwertera tempa dla systemu ALSA oparta na libavcodec.
 Summary:	ALSA plugins for Nokia DSP
 Summary(pl.UTF-8):	Wtyczki systemu ALSA dla DSP Nokii
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.16
+Requires:	alsa-lib >= 1.0.18
 
 %description maemo
 ALSA plugins for Nokia DSP.
@@ -84,7 +83,7 @@ Wtyczki systemu ALSA dla DSP Nokii.
 Summary:	Up/down mixing plugins for ALSA
 Summary(pl.UTF-8):	Wtyczki up/down-mix dla systemu ALSA
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.16
+Requires:	alsa-lib >= 1.0.18
 
 %description mix
 Up/down mixing plugins for ALSA.
@@ -96,7 +95,7 @@ Wtyczki up/down-mix dla systemu ALSA.
 Summary:	OSS <--> ALSA plugins
 Summary(pl.UTF-8):	Wtyczki OSS <--> ALSA
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.16
+Requires:	alsa-lib >= 1.0.18
 
 %description oss
 These plugins converts the ALSA API over OSS API. ALSA native
@@ -110,7 +109,7 @@ natywnie z biblioteki ALSA mogą działać na sterownikach OSS.
 Summary:	PulseAudio <--> ALSA plugins
 Summary(pl.UTF-8):	Wtyczki PulseAudio <--> ALSA
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.16
+Requires:	alsa-lib >= 1.0.18
 Requires:	pulseaudio-libs >= 0.9.2
 Obsoletes:	alsa-plugins-polyp
 
@@ -128,7 +127,7 @@ odtwarzać i nagrywać dźwięk poprzez sieć.
 Summary:	libsamplerate-based rate converter plugin for ALSA
 Summary(pl.UTF-8):	Wtyczka konwertera tempa dla systemu ALSA oparta na libsamplerate
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.16
+Requires:	alsa-lib >= 1.0.18
 
 %description samplerate
 libsamplerate-based rate converter plugin for ALSA.
@@ -141,7 +140,7 @@ Summary:	speex-based rate converter plugin for ALSA
 Summary(pl.UTF-8):	Wtyczka konwertera tempa dla systemu ALSA oparta na bibliotece speex
 License:	BSD
 Group:		Libraries
-Requires:	alsa-lib >= 1.0.16
+Requires:	alsa-lib >= 1.0.18
 Requires:	speex >= 1:1.2
 
 %description speexrate
@@ -150,9 +149,20 @@ speex-based rate converter plugin for ALSA.
 %description speexrate -l pl.UTF-8
 Wtyczka konwertera tempa dla systemu ALSA oparta na bibliotece speex.
 
+%package usb_stream
+Summary:	usb_stream PCM I/O plugin for ALSA
+Summary(pl.UTF-8):	Wtyczka wejścia-wyjścia PCM usb_stream dla systemu ALSA
+Group:		Libraries
+Requires:	alsa-lib >= 1.0.18
+
+%description usb_stream
+usb_stream PCM I/O plugin for ALSA.
+
+%description usb_stream -l pl.UTF-8
+Wtyczka wejścia-wyjścia PCM usb_stream dla systemu ALSA.
+
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.sub .
@@ -229,3 +239,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_rate_speexrate.so
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_rate_speexrate_best.so
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_rate_speexrate_medium.so
+
+%files usb_stream
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_pcm_usb_stream.so
