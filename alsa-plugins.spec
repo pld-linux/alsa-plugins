@@ -1,12 +1,12 @@
 Summary:	Advanced Linux Sound Architecture - plugins
 Summary(pl.UTF-8):	Advanced Linux Sound Architecture - wtyczki
 Name:		alsa-plugins
-Version:	1.0.19
+Version:	1.0.20
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://ftp.alsa-project.org/pub/plugins/%{name}-%{version}.tar.bz2
-# Source0-md5:	29ae9cac05423cf6a49f66eeb1a79eb6
+# Source0-md5:	819c4f21e3e913eacefd32993a8fbed7
 URL:		http://www.alsa-project.org/
 BuildRequires:	alsa-lib-devel >= 1.0.18
 BuildRequires:	automake
@@ -14,8 +14,8 @@ BuildRequires:	dbus-devel >= 0.35
 BuildRequires:	ffmpeg-devel >= 0.4.9-4.20080822.1
 BuildRequires:	jack-audio-connection-kit-devel >= 0.98
 BuildRequires:	libsamplerate-devel
-BuildRequires:	pulseaudio-devel >= 0.9.2
 BuildRequires:	pkgconfig
+BuildRequires:	pulseaudio-devel >= 0.9.2
 BuildRequires:	speex-devel >= 1:1.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -36,6 +36,20 @@ A52 output plugin for ALSA.
 
 %description a52 -l pl.UTF-8
 Wtyczka wyjściowa A52 dla systemu ALSA.
+
+%package arcam-av
+Summary:	Controls for an Arcam AV amplifier
+Summary(pl.UTF-8):	Kontrolki do wzmacniacza Arcam AV
+Group:		Libraries
+Requires:	alsa-lib >= 1.0.18
+
+%description arcam-av
+This plugin exposes the controls for an Arcam AV amplifier (see:
+http://www.arcam.co.uk/) as an ALSA mixer device.
+
+%description arcam-av -l pl.UTF-8
+Wtyczka ta umożliwia kontrolę nad wzmacniaczem Arcam AV
+(http://www.arcam.co.uk/) tak jakby to było urządzenie miksujące ALSA.
 
 %package jack
 Summary:	JACK <--> ALSA PCM plugin
@@ -135,6 +149,20 @@ libsamplerate-based rate converter plugin for ALSA.
 %description samplerate -l pl.UTF-8
 Wtyczka konwertera tempa dla systemu ALSA oparta na libsamplerate.
 
+%package speex
+Summary:	speex-based PCM plugin for ALSA
+Summary(pl.UTF-8):	Wtyczka PCM speex dla systemu ALSA
+License:	BSD
+Group:		Libraries
+Requires:	alsa-lib >= 1.0.18
+Requires:	speex >= 1:1.2
+
+%description speex
+speex-based PCM plugin for ALSA.
+
+%description speex -l pl.UTF-8
+Wtyczka PCM speex dla systemu ALSA.
+
 %package speexrate
 Summary:	speex-based rate converter plugin for ALSA
 Summary(pl.UTF-8):	Wtyczka konwertera tempa dla systemu ALSA oparta na bibliotece speex
@@ -188,6 +216,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_pcm_a52.so
 
+%files arcam-av
+%defattr(644,root,root,755)
+%doc doc/README-arcam-av
+%attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_ctl_arcam_av.so
+
 %files jack
 %defattr(644,root,root,755)
 %doc doc/README-jack
@@ -233,6 +266,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_rate_samplerate_linear.so
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_rate_samplerate_medium.so
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_rate_samplerate_order.so
+
+%files speex
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_pcm_speex.so
 
 %files speexrate
 %defattr(644,root,root,755)
