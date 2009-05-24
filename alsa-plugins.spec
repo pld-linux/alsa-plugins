@@ -2,11 +2,12 @@ Summary:	Advanced Linux Sound Architecture - plugins
 Summary(pl.UTF-8):	Advanced Linux Sound Architecture - wtyczki
 Name:		alsa-plugins
 Version:	1.0.20
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://ftp.alsa-project.org/pub/plugins/%{name}-%{version}.tar.bz2
 # Source0-md5:	819c4f21e3e913eacefd32993a8fbed7
+Source1:	%{name}-pulse.conf
 URL:		http://www.alsa-project.org/
 BuildRequires:	alsa-lib-devel >= 1.0.18
 BuildRequires:	automake
@@ -203,11 +204,13 @@ cp -f /usr/share/automake/config.sub .
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_sysconfdir}/alsa
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/alsa-lib/*.la
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/alsa/pulse-default.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -254,6 +257,7 @@ rm -rf $RPM_BUILD_ROOT
 %files pulse
 %defattr(644,root,root,755)
 %doc doc/README-pulse
+%{_sysconfdir}/alsa/pulse-default.conf
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_conf_pulse.so
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_ctl_pulse.so
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_pcm_pulse.so
