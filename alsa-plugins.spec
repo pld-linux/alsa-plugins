@@ -2,20 +2,21 @@ Summary:	Advanced Linux Sound Architecture - plugins
 Summary(pl.UTF-8):	Advanced Linux Sound Architecture - wtyczki
 Name:		alsa-plugins
 Version:	1.0.14
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://ftp.alsa-project.org/pub/plugins/%{name}-%{version}.tar.bz2
 # Source0-md5:	fa678da6b91c9f3c7204bc8d14e5b53f
 URL:		http://www.alsa-project.org/
+Patch0:		%{name}-ffmpeg.patch
 BuildRequires:	alsa-lib-devel >= 1.0.14
 BuildRequires:	automake
 BuildRequires:	dbus-devel >= 0.35
 BuildRequires:	ffmpeg-devel
 BuildRequires:	jack-audio-connection-kit-devel >= 0.98
 BuildRequires:	libsamplerate-devel
-BuildRequires:	pulseaudio-devel >= 0.9.2
 BuildRequires:	pkgconfig
+BuildRequires:	pulseaudio-devel >= 0.9.2
 BuildRequires:	speex-devel >= 1:1.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -151,6 +152,7 @@ Wtyczka konwertera tempa dla systemu ALSA oparta na bibliotece speex.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.sub .
