@@ -1,12 +1,12 @@
 Summary:	Advanced Linux Sound Architecture - plugins
 Summary(pl.UTF-8):	Advanced Linux Sound Architecture - wtyczki
 Name:		alsa-plugins
-Version:	1.0.23
+Version:	1.0.24
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://ftp.alsa-project.org/pub/plugins/%{name}-%{version}.tar.bz2
-# Source0-md5:	a671f8102366c5b388133e948e1c85cb
+# Source0-md5:	e4d4c90e11ab9d1a117afbbc1edd2b16
 Source1:	%{name}-pulse.conf
 URL:		http://www.alsa-project.org/
 BuildRequires:	alsa-lib-devel >= 1.0.18
@@ -16,7 +16,7 @@ BuildRequires:	ffmpeg-devel >= 0.4.9-4.20080822.1
 BuildRequires:	jack-audio-connection-kit-devel >= 0.98
 BuildRequires:	libsamplerate-devel
 BuildRequires:	pkgconfig
-BuildRequires:	pulseaudio-devel >= 0.9.2
+BuildRequires:	pulseaudio-devel >= 0.9.11
 BuildRequires:	speex-devel >= 1:1.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -125,7 +125,7 @@ Summary:	PulseAudio <--> ALSA plugins
 Summary(pl.UTF-8):	Wtyczki PulseAudio <--> ALSA
 Group:		Libraries
 Requires:	alsa-lib >= 1.0.18
-Requires:	pulseaudio-libs >= 0.9.2
+Requires:	pulseaudio-libs >= 0.9.11
 Obsoletes:	alsa-plugins-polyp
 
 %description pulse
