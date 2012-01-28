@@ -209,7 +209,7 @@ install -d $RPM_BUILD_ROOT%{_sysconfdir}/alsa
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/alsa-lib/*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/alsa-lib/*.la
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/alsa/pulse-default.conf
 
 %clean
@@ -257,10 +257,12 @@ rm -rf $RPM_BUILD_ROOT
 %files pulse
 %defattr(644,root,root,755)
 %doc doc/README-pulse
-%{_sysconfdir}/alsa/pulse-default.conf
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_conf_pulse.so
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_ctl_pulse.so
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_pcm_pulse.so
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/alsa/pulse-default.conf
+%{_datadir}/alsa/alsa.conf.d/50-pulseaudio.conf
+#%{_datadir}/alsa/alsa.conf.d/99-pulseaudio-default.conf.example
 
 %files samplerate
 %defattr(644,root,root,755)
