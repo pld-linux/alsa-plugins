@@ -8,6 +8,7 @@ Group:		Libraries
 Source0:	ftp://ftp.alsa-project.org/pub/plugins/%{name}-%{version}.tar.bz2
 # Source0-md5:	ada0163e0e84c787bfc929ad0f3f5cb8
 Source1:	%{name}-pulse.conf
+Patch0:		%{name}-avcodec-check.patch
 URL:		http://www.alsa-project.org/
 BuildRequires:	alsa-lib-devel >= 1.0.18
 BuildRequires:	automake
@@ -192,6 +193,7 @@ Wtyczka wejścia-wyjścia PCM usb_stream dla systemu ALSA.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.sub .
