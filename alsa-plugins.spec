@@ -18,6 +18,7 @@ BuildRequires:	libsamplerate-devel
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel >= 0.9.11
 BuildRequires:	speex-devel >= 1:1.2
+BuildRequires:	speexdsp-devel >= 1:1.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
