@@ -1,12 +1,12 @@
 Summary:	Advanced Linux Sound Architecture - plugins
 Summary(pl.UTF-8):	Advanced Linux Sound Architecture - wtyczki
 Name:		alsa-plugins
-Version:	1.0.28
-Release:	2
+Version:	1.0.29
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://ftp.alsa-project.org/pub/plugins/%{name}-%{version}.tar.bz2
-# Source0-md5:	6fcbbb31e96f8ebc5fb926184a717aa4
+# Source0-md5:	a66797b4471e3cbe96575207bfbe252c
 Source1:	%{name}-pulse.conf
 URL:		http://www.alsa-project.org/
 BuildRequires:	alsa-lib-devel >= 1.0.18
@@ -17,6 +17,7 @@ BuildRequires:	jack-audio-connection-kit-devel >= 0.98
 BuildRequires:	libsamplerate-devel
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel >= 0.9.11
+# for <speex/speex_types.h>
 BuildRequires:	speex-devel >= 1:1.2
 BuildRequires:	speexdsp-devel >= 1:1.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -157,7 +158,7 @@ Summary(pl.UTF-8):	Wtyczka PCM speex dla systemu ALSA
 License:	BSD
 Group:		Libraries
 Requires:	alsa-lib >= 1.0.18
-Requires:	speex >= 1:1.2
+Requires:	speexdsp >= 1:1.2
 
 %description speex
 speex-based PCM plugin for ALSA.
@@ -171,7 +172,7 @@ Summary(pl.UTF-8):	Wtyczka konwertera tempa dla systemu ALSA oparta na bibliotec
 License:	BSD
 Group:		Libraries
 Requires:	alsa-lib >= 1.0.18
-Requires:	speex >= 1:1.2
+Requires:	speexdsp >= 1:1.2
 
 %description speexrate
 speex-based rate converter plugin for ALSA.
