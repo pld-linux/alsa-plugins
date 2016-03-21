@@ -1,0 +1,29 @@
+--- alsa-plugins-1.1.0/a52/pcm_a52.c.orig	2015-10-27 14:34:06.000000000 +0100
++++ alsa-plugins-1.1.0/a52/pcm_a52.c	2016-03-21 12:25:16.452315942 +0100
+@@ -39,7 +39,7 @@
+ #endif
+ 
+ #if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(53, 34, 0)
+-#include <libavutil/audioconvert.h>
++//#include <libavutil/audioconvert.h>
+ #include <libavutil/mem.h>
+ #define USE_AVCODEC_FRAME
+ #endif
+@@ -513,7 +513,7 @@
+ 		rec->inbuf = NULL;
+ 	}
+ #if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(54, 28, 0)
+-	avcodec_free_frame(&rec->frame);
++	av_frame_free(&rec->frame);
+ #else
+ 	av_freep(&rec->frame);
+ #endif
+@@ -557,7 +557,7 @@
+ {
+ 	struct a52_ctx *rec = io->private_data;
+ #ifdef USE_AVCODEC_FRAME
+-	rec->frame = avcodec_alloc_frame();
++	rec->frame = av_frame_alloc();
+ 	if (!rec->frame)
+ 		return -ENOMEM;
+ 	if (av_samples_alloc(rec->frame->data, rec->frame->linesize,
