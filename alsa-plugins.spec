@@ -1,14 +1,13 @@
 Summary:	Advanced Linux Sound Architecture - plugins
 Summary(pl.UTF-8):	Advanced Linux Sound Architecture - wtyczki
 Name:		alsa-plugins
-Version:	1.1.0
-Release:	2
+Version:	1.1.1
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://ftp.alsa-project.org/pub/plugins/%{name}-%{version}.tar.bz2
-# Source0-md5:	b123e42ed881b9adbc99e4040f257c39
+# Source0-md5:	69f9f3e2de3c97fc71d496e91e271fe5
 Source1:	%{name}-pulse.conf
-Patch0:		ffmpeg3.patch
 URL:		http://www.alsa-project.org/
 BuildRequires:	alsa-lib-devel >= 1.0.18
 BuildRequires:	automake
@@ -195,7 +194,6 @@ Wtyczka wejścia-wyjścia PCM usb_stream dla systemu ALSA.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.sub .
