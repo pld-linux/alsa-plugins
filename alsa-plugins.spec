@@ -1,20 +1,22 @@
 Summary:	Advanced Linux Sound Architecture - plugins
 Summary(pl.UTF-8):	Advanced Linux Sound Architecture - wtyczki
 Name:		alsa-plugins
-Version:	1.1.1
+Version:	1.1.4
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://ftp.alsa-project.org/pub/plugins/%{name}-%{version}.tar.bz2
-# Source0-md5:	69f9f3e2de3c97fc71d496e91e271fe5
+# Source0-md5:	de51130a7444b79b2dd3c25e28420754
 Source1:	%{name}-pulse.conf
 URL:		http://www.alsa-project.org/
 BuildRequires:	alsa-lib-devel >= 1.0.18
+BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	dbus-devel >= 0.35
 BuildRequires:	ffmpeg-devel >= 0.4.9-4.20080822.1
 BuildRequires:	jack-audio-connection-kit-devel >= 0.98
 BuildRequires:	libsamplerate-devel
+BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel >= 0.9.11
 # for <speex/speex_types.h>
@@ -196,7 +198,11 @@ Wtyczka wejścia-wyjścia PCM usb_stream dla systemu ALSA.
 %setup -q
 
 %build
-cp -f /usr/share/automake/config.sub .
+%{__libtoolize}
+%{__aclocal} -I m4
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
 	--enable-maemo-plugin \
 	--enable-maemo-resource-manager \
