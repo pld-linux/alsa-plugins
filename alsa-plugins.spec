@@ -1,13 +1,18 @@
+#
+# Conditional build:
+%bcond_with	lavcrate	# build lavcrate plugin (requires ffmpeg < 4)
+#
 Summary:	Advanced Linux Sound Architecture - plugins
 Summary(pl.UTF-8):	Advanced Linux Sound Architecture - wtyczki
 Name:		alsa-plugins
 Version:	1.1.6
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://ftp.alsa-project.org/pub/plugins/%{name}-%{version}.tar.bz2
 # Source0-md5:	8387279e99feeb2ecffaac5f293223d7
 Source1:	%{name}-pulse.conf
+Patch0:		no-lavcreate.patch
 URL:		http://www.alsa-project.org/
 BuildRequires:	alsa-lib-devel >= 1.0.18
 BuildRequires:	autoconf >= 2.59
@@ -196,6 +201,7 @@ Wtyczka wejścia-wyjścia PCM usb_stream dla systemu ALSA.
 
 %prep
 %setup -q
+%{!?with_lavcrate:%patch0 -p1}
 
 %build
 %{__libtoolize}
@@ -237,6 +243,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/README-jack
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_pcm_jack.so
 
+%if %{with lavcrate}
 %files lavcrate
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_rate_lavcrate.so
@@ -244,6 +251,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_rate_lavcrate_faster.so
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_rate_lavcrate_high.so
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_rate_lavcrate_higher.so
+%endif
 
 %files maemo
 %defattr(644,root,root,755)
