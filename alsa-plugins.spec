@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_with	lavrate	# build lavrate plugin (requires ffmpeg < 4)
+%bcond_without	lavrate	# lavrate plugins
 #
 Summary:	Advanced Linux Sound Architecture - plugins
 Summary(pl.UTF-8):	Advanced Linux Sound Architecture - wtyczki
