@@ -5,12 +5,12 @@
 Summary:	Advanced Linux Sound Architecture - plugins
 Summary(pl.UTF-8):	Advanced Linux Sound Architecture - wtyczki
 Name:		alsa-plugins
-Version:	1.2.2
+Version:	1.2.5
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://ftp.alsa-project.org/pub/plugins/%{name}-%{version}.tar.bz2
-# Source0-md5:	8455e3c6fbc47f62f070afabc14ba575
+# Source0-md5:	11d1bcc1b4eec26c1011ec965f4b54ba
 Source1:	%{name}-pulse.conf
 URL:		http://www.alsa-project.org/
 BuildRequires:	alsa-lib-devel >= 1.1.6
