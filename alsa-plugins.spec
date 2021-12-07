@@ -5,19 +5,19 @@
 Summary:	Advanced Linux Sound Architecture - plugins
 Summary(pl.UTF-8):	Advanced Linux Sound Architecture - wtyczki
 Name:		alsa-plugins
-Version:	1.2.5
+Version:	1.2.6
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://ftp.alsa-project.org/pub/plugins/%{name}-%{version}.tar.bz2
-# Source0-md5:	11d1bcc1b4eec26c1011ec965f4b54ba
+# Source0-md5:	5ff136cf63d190dc51d7065a0eb7c978
 Source1:	%{name}-pulse.conf
 URL:		http://www.alsa-project.org/
 BuildRequires:	alsa-lib-devel >= 1.1.6
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	dbus-devel >= 0.35
-BuildRequires:	ffmpeg-devel >= 0.4.9-4.20080822.1
+BuildRequires:	ffmpeg-devel >= 0.9
 BuildRequires:	jack-audio-connection-kit-devel >= 0.98
 BuildRequires:	libsamplerate-devel
 BuildRequires:	libtool
