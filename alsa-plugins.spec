@@ -1,6 +1,7 @@
 #
 # Conditional build:
 %bcond_without	lavrate	# lavrate plugins
+%bcond_without	libavtp	# AAF (AVTP) plugin
 #
 Summary:	Advanced Linux Sound Architecture - plugins
 Summary(pl.UTF-8):	Advanced Linux Sound Architecture - wtyczki
@@ -19,6 +20,7 @@ BuildRequires:	automake
 BuildRequires:	dbus-devel >= 0.35
 BuildRequires:	ffmpeg-devel >= 0.9
 BuildRequires:	jack-audio-connection-kit-devel >= 0.98
+%{?with_libavtp:BuildRequires:	libavtp-devel >= 0.1}
 BuildRequires:	libsamplerate-devel
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
@@ -45,6 +47,19 @@ A52 output plugin for ALSA.
 
 %description a52 -l pl.UTF-8
 Wtyczka wyjściowa A52 dla systemu ALSA.
+
+%package aaf
+Summary:	AAF plugin for ALSA
+Summary(pl.UTF-8):	Wtyczka AAF dla systemu ALSA
+Group:		Libraries
+Requires:	alsa-lib >= 1.1.6
+Requires:	libavtp >= 0.1
+
+%description aaf
+AAF plugin for ALSA.
+
+%description aaf -l pl.UTF-8
+Wtyczka AAF dla systemu ALSA.
 
 %package arcam-av
 Summary:	Controls for an Arcam AV amplifier
@@ -135,7 +150,7 @@ Summary(pl.UTF-8):	Wtyczki PulseAudio <--> ALSA
 Group:		Libraries
 Requires:	alsa-lib >= 1.1.6
 Requires:	pulseaudio-libs >= 0.9.11
-Obsoletes:	alsa-plugins-polyp
+Obsoletes:	alsa-plugins-polyp < 1.0.12
 
 %description pulse
 These plugins allows any program that uses the ALSA API to access a
@@ -209,6 +224,7 @@ Wtyczka wejścia-wyjścia PCM usb_stream dla systemu ALSA.
 %{__autoheader}
 %{__automake}
 %configure \
+	%{!?with_libavtp:--disable-aaf} \
 	%{!?with_lavrate:--disable-lavrate} \
 	--enable-maemo-plugin \
 	--enable-maemo-resource-manager \
@@ -234,6 +250,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_pcm_a52.so
 %config(noreplace,missingok) %verify(not link) %{_sysconfdir}/alsa/conf.d/60-a52-encoder.conf
 %{_datadir}/alsa/alsa.conf.d/60-a52-encoder.conf
+
+%if %{with libavtp}
+%files aaf
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/alsa-lib/libasound_module_pcm_aaf.so
+%endif
 
 %files arcam-av
 %defattr(644,root,root,755)
